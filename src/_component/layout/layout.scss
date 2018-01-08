@@ -11,11 +11,15 @@ body {
     font-family: "Open Sans"
 }
 
-html { font-size: 6vw; }
+html { font-size: 16px; }
 
 @media screen and (min-width: 25em){
     html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
   }
+
+ul {
+    list-style-type: none;
+}
 
 .welcome {
     height: 100%;
@@ -24,7 +28,7 @@ html { font-size: 6vw; }
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(ellipse, $color-buttercup, $color-golden-grass);
+    background: radial-gradient(ellipse, $color-normal, $color-golden-grass);
 
     h1 {
         color: $color-white;
@@ -43,11 +47,17 @@ html { font-size: 6vw; }
         border-radius: 0.3rem;
         margin: 1rem;
         position: relative;
-        background-color: $color-buttercup1;
-        padding-right: 1.5rem;
+        background-color: $color-dark;
+        padding-right: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &:hover {
-            border: 0.1rem solid $color-buttercup;
+            border: 0.1rem solid $color-normal;
         }
+    }
+    .continue-arrow {
+        margin: 0 0.2rem;
         &:after {
             content: "";
             display: block;
@@ -56,9 +66,7 @@ html { font-size: 6vw; }
             border-top: 0.5rem solid $color-white;
             border-left: 0.5rem solid transparent;
             border-right: 0.5rem solid transparent;
-            position:absolute;
-            right: 0.2rem;
-            top: 1rem;
         }
+        
     }
 }

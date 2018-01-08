@@ -1,0 +1,27 @@
+footer { 
+    padding: 0.5rem;
+}
+
+.footer {
+    border-radius: 0.5rem;
+    background-color: $color-dark;
+    color: $color-white;
+    padding: 0.5 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.footer__list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer__link {
+    padding: 0 1rem;
+    color: $color-white;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+}
