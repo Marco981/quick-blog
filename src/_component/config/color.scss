@@ -1,14 +1,13 @@
 $theme: "buttercup";
 
+
 @if (theme == "buttercup") {
     $color-normal :#f1c40f;
     $color-dark:#f39c12;
 }
-@if (theme == "zest") {
-    $color-normal:#e67e22;
-    $color-dark:#d35400;
-}
+
 $color-normal :#f1c40f;
 $color-dark:#f39c12;
 $color-golden-grass:#dd9a2d;
 $color-white:#fff;
+$color-athens-gray:#e7e9ec;
