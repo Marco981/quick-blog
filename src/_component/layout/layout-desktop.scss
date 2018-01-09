@@ -1,6 +1,11 @@
 @media (min-width:1280px) {
-    .welcome .welcome-description {
-        font-size: 1rem;
+    .welcome {
+        h1 {
+            font-size: 2.5rem;
+        }
+        .welcome-description {
+        font-size: 1.3rem;
+        }
     }
     .container {
         display: grid;
@@ -17,4 +22,9 @@ footer {
     grid-column:1/3;
     }
 
+.content {   
+    h2 {
+        font-size: 2rem;
+        }
+    }
 }
