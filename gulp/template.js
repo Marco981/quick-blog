@@ -18,7 +18,7 @@ const template = ({
   const dir = config.directory;
   const dataPath = path.join(dir.source, dir.data);
   const templateCollection = dir.templateCollection;
-  const inlinePath = path.join(taskTarget, 'inline.css');
+  let inlinePath;
 
   gulp.task('template', () => {
     let data = getJsonData({dataPath}) || {};
@@ -38,11 +38,13 @@ const template = ({
         gulp,
         staticFilePath,
         dest,
+        config,
         plugins
       });
     });
 
     let gulpStreamCollection = templateCollection.map(folderName => {
+      inlinePath = path.join(taskTarget, folderName, '../inline.css');
       let templateData = getJsonData({dataPath: path.join(dir.source, '_' + folderName)}) || {};
 
       return Object.keys(templateData)
@@ -53,7 +55,6 @@ const template = ({
         return gulp.src(
           path.join(dir.source, '_' + folderName, 'template.pug')
         )
-        .pipe(plugins.plumber())
         // .pipe(plugins.debug())
         // compile pug to html
         .pipe(plugins.pug({

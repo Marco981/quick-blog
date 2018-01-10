@@ -17,7 +17,8 @@ const pug = ({
   const inlinePath = path.join(taskTarget, 'inline.css');
 
   gulp.task('pug', () => {
-    let data = getJsonData({dataPath}) || {};
+    let data = getJsonData({dataPath}) || {},
+        reload = true;
 
     return gulp
       // target pug files
@@ -26,6 +27,7 @@ const pug = ({
         // Ignore files and folders that start with "_"
         '!' + path.join(dir.source, '{**/\_*,**/\_*/**}')
       ])
+      // .pipe(plugins.debug())
       // Only deal with files that change in the pipeline
       .pipe(plugins.changed(taskTarget))
       .pipe(plugins.plumber())
@@ -42,10 +44,13 @@ const pug = ({
           inlinePath
         }
       }))
-      // Check if inline.css exists and use inlineSource to inject it
-      .on('error', error => {
-        console.error(error);
+      .on('error', function(error) {
+        browserSync.notify(printError(error), 25000);
+        console.log(error);
+        reload = false;
+        this.emit('end');
       })
+      // Check if inline.css exists and use inlineSource to inject it
       .pipe(plugins.if(
         fs.existsSync(inlinePath),
         plugins.inlineSource({
@@ -53,7 +58,9 @@ const pug = ({
         })
       ))
       .pipe(gulp.dest(path.join(taskTarget)))
-      .on('end', browserSync.reload);
+      .on('end', () => {
+        reload && browserSync.reload();
+      });
   });
 };
 
