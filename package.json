@@ -39,7 +39,8 @@
       "cssExternal": "style**.{scss,sass}",
       "cssInline": "inline**.{scss,sass}",
       "css": {
-        "inline": true,
+        "//": "the inline is meant to be embed",
+        "inline": false,
         "external": true
       }
     }

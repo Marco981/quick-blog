@@ -1,11 +1,13 @@
 doctype html
 html
+//- - var baseUrl = "localhost:3000"
 - var baseUrl = "https://marco981.github.io/quick-blog/"
     block config
     head
         title=title
         meta(name="description",content=description)
-        link(rel="stylesheet" href=`${baseUrl}/style.css`)
+        //- if config.entry.css.inline
+        link(rel="stylesheet" href=`${baseUrl}/style.css`, inline)
     body
         include ../welcome/welcome
         .container

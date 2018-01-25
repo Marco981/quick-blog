@@ -28,6 +28,7 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     background: radial-gradient(ellipse, $color-normal, $color-golden-grass);
 
