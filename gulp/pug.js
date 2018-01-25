@@ -44,11 +44,14 @@ const pug = ({
           inlinePath
         }
       }))
-      .on('error', function(error) {
-        browserSync.notify(printError(error), 25000);
-        console.log(error);
-        reload = false;
-        this.emit('end');
+
+          .on('error', error => {
+            console.error(error);
+      // .on('error', function(error) {
+      //   browserSync.notify(printError(error), 25000);
+      //   console.log(error);
+      //   reload = false;
+      //   this.emit('end');
       })
       // Check if inline.css exists and use inlineSource to inject it
       .pipe(plugins.if(
