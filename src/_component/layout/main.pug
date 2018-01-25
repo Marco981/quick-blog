@@ -1,16 +1,17 @@
 doctype html
 html
 //- - var baseUrl = "localhost:3000"
-- var baseUrl = "https://marco981.github.io/quick-blog/"
-    block config
-    head
-        title=title
-        meta(name="description",content=description)
-        //- if config.entry.css.inline
-        link(rel="stylesheet" href=`${baseUrl}/style.css`, inline)
-    body
-        include ../welcome/welcome
-        .container
-            block content
-            include ../menu/menu
-            include ../footer/footer
+//- - var baseUrl = "https://marco981.github.io/quick-blog/"
+block config
+head
+    title=title
+    meta(name="description",content=description)
+    if config.entry.css.inline
+    link(rel="stylesheet" href=`${inlinePath}`, inline)
+body
+    include ../welcome/welcome
+    .container
+        block content
+        include ../menu/menu
+        include ../footer/footer
+    link(rel="stylesheet",href="/style.css")
